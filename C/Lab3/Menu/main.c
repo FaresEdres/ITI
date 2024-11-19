@@ -6,36 +6,27 @@
 
 void main(){
 
-char flag=1;
+char flag=SELECT_NEW;
 char choice;
 choiceOne();
-while(1){
-char choice=getch();
-printf("%d",choice);
-if(choice==EXTENDED){
-    choice=getch();
-    printf("%d",choice);
-    choice=getch();
-    printf("%d",choice);
-  }
-clrscr();
+while(INFINITE_LOOP){
+choice=checkButton();
 switch(choice){
 case UP:
 flag--;
-
     switch(flag){
 
-        case 1:
+        case SELECT_NEW :
         choiceOne();
         break;
 
-        case 2:
+        case SELECT_DISPLAY:
         choiceTwo();
 
         break;
 
-        case 0:
-        flag=3;
+        case MIN_FLAG:
+        flag=SELECT_EXIT;
         choiceThree();
         break;
 
@@ -48,46 +39,46 @@ flag++;
 
     switch(flag){
 
-        case 2:
+        case SELECT_DISPLAY:
 
-choiceTwo();
+        choiceTwo();
         break;
-        case 3:
+        case SELECT_EXIT:
 
-choiceThree();
+        choiceThree();
 
         break;
-        case 4:
-        flag=1;
-choiceOne();
+        case MAX_FLAG:
+        flag=SELECT_NEW;
+        choiceOne();
 
         break;
 
     }
 break;
 
+case BACK:
+if(flag==SELECT_NEW)choiceOne();
+if (flag==SELECT_DISPLAY)choiceTwo();
+if (flag==SELECT_EXIT)choiceThree();
+
+break;
 
 case ENTER:
 
-if(flag==1){
-printf("menu1");
+if(flag==SELECT_NEW){
 
-while(getch()!=BACK);
-
-clrscr();
-choiceOne();
+choiceOneDetails();
 
 }
-if (flag==2){
-printf(" menu2");
-while(getch()!=BACK);
+if (flag==SELECT_DISPLAY){
 
-clrscr();
-choiceOne();
-
+choiceTwoDetails();
 }
 
-if(flag==3)return 0;
+if(flag==SELECT_EXIT){
+choiceThreeDetails();
+}
 break;
 
 default:

@@ -17,3 +17,21 @@
 
 1731940033 /media/faresedres/Hard Drive/ITI/C/Menu/Menu/menu.h
 
+1732017213 source:/media/faresedres/Hard Drive/ITI/C/Lab3/Menu/menu.c
+	"menu.h"
+
+1732018144 /media/faresedres/Hard Drive/ITI/C/Lab3/Menu/menu.h
+
+1732018144 source:/media/faresedres/Hard Drive/ITI/C/Lab3/Menu/main.c
+	<stdio.h>
+	"conio.h"
+	"menu.h"
+
+1731929951 /media/faresedres/Hard Drive/ITI/C/Lab3/Menu/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<fcntl.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,25 +1,58 @@
 #include "menu.h"
 void choiceOne(){
-SET_RED;
+clrscr();
+printf(SET_RED);
         printf("New \n");
-        SET_WHITE;
+        printf(SET_WHITE);
         printf("Display \n");
 
         printf("Exit \n");
         }
 void choiceTwo(){
-SET_WHITE;
+clrscr();
+printf(SET_WHITE);
         printf("New \n");
-        SET_RED;
+        printf(SET_RED);
         printf("Display \n");
-        SET_WHITE;
+        printf(SET_WHITE);
         printf("Exit \n");
         }
 void choiceThree(){
-        SET_WHITE;
+clrscr();
+        printf(SET_WHITE);
         printf("New \n");
         printf("Display \n");
-        SET_RED;
+        printf(SET_RED);
         printf("Exit \n");
 
 }
+char checkButton(){
+char choice;
+ choice=getch();
+if(choice==EXTENDED){
+    getch();
+    choice=getch();
+
+  }
+}
+void choiceOneDetails(){
+clrscr();
+printf("menu1");
+}
+void choiceTwoDetails(){
+clrscr();
+printf("menu2");
+}
+void choiceThreeDetails(){
+exit(1);
+}
+/*char buttonCheck(char choice){
+if(choice==EXTENDED){
+    choice=getch();
+    printf("%d",choice);
+    choice=getch();
+    printf("%d",choice);
+  }
+return choice;
+
+}*/
