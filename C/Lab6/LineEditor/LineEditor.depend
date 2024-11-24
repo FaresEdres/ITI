@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1732458196 source:/media/faresedres/Hard Drive/ITI/C/Lab6/LineEditor/main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdlib.h>
+	"conio.h"
+
+1731929951 /media/faresedres/Hard Drive/ITI/C/Lab6/LineEditor/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<fcntl.h>
+	<stdlib.h>
+	<string.h>
+
