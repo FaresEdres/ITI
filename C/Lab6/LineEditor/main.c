@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "conio.h"
 #define ESC 6888
 #define EXTENDED 27
@@ -12,99 +10,130 @@
 #define INSERT 80
 #define END 70
 #define DELETE 81
-#define ESC 888
-#define ARRAY_SIZE 100
-#define cursor(x,y)  printf("\033[%d;%dH",y,x)
+#define STR_SIZE 100
 
-char checkButton(){
-char choice;
- choice=getch();
-if(choice==EXTENDED){
-if(kbhit()){
-getch();
-choice=getch();
-}else{return ESC;}
+char checkButton() {
+    char choice;
+    choice = getch();
+    if (choice == EXTENDED) {
+        if (kbhit()) {
+            getch();
+            choice = getch();
+        } else {
+            return ESC;
+        }
+    }
+    return choice;
 }
-}
-
-int main()
-{
-char curr=0,end=0,start=0,ch;
-char str[ARRAY_SIZE];
-str[0]='\0';
-    while(1){
-
-ch=checkButton();
-
-switch(ch){
-
-case RIGHT:
-
-if((curr+1)<=end)
-{
-printf("\033[;%dH",curr+1);
-curr++;
-}
-break;
-case LEFT:
-if((curr-1)>=start)
-{
-printf("\033[;%dH",curr-1);
-curr--;
-}
-break;
-
-case BACK:
-for(int i=end;i>=curr;i--){
-str[i+1]=str[i];
-
-}
-str[curr]=ch;
-str[++end]='\0';
-    printf("%s",str);
-    printf("\033[;%dH",curr);
-
-break;
-
-case HOME:
-printf("\033[;%dH",start);
-curr=start;
-break;
 
 
-case END:
-printf("\033[;%dH",end);
-curr=end;
 
+int main() {
+    char *start, *curr, *end;
+    char str[STR_SIZE] = {0};
+    char ch;
+    int flag=0;
+    start=str;
+    curr=str;
+    end=str;
+   clrscr();
+    while (1) {
+        ch = checkButton();
 
-default:
+        switch (ch) {
+            case RIGHT:
+                if ((curr + 1) <= end) {
+                    curr++;
+                    printf("\033[1C");
+                }
+                break;
 
- clrscr();
-    if (curr==end){
-    str[curr++]=ch;
+            case LEFT:
+                if (curr > start) {
+                    curr--;
+                    printf("\033[1D");
+                }
+                break;
 
-    str[curr]='\0';
+            case BACK:
+                if (curr > start) {
+                    char *ptr=curr-1;
+                    while (ptr < end) {
+                        *ptr =*(ptr+1);
+                        ptr++;
+                    }
+                    end--;
+                    curr--;
+                    clrscr();
+                    printf("%s",start);
+                    printf("\033[%ldG",curr-start+1);
+                }
+                break;
 
-    end++;
+            case HOME:
+                curr=start;
+                //move to first col
+                printf("\033[1G");
+                break;
 
-    printf("%s",str);
-}
-else{
+            case END:
+                curr=end;
+                //move to last col
+                printf("\033[%ldG",curr-start+1);
+                break;
 
-for(int i=end;i>=curr;i--){
-str[i+1]=str[i];
+            case DELETE:
+                if (curr < end) {
+                    char *ptr = curr;
+                    while (ptr < end) {
+                        *ptr =*(ptr + 1);
+                        ptr++;
+                    }
+                    end--;
 
-}
-str[curr]=ch;
-str[++end]='\0';
-    printf("%s",str);
-    printf("\033[;%dH",curr);
-}
-    break;
+                    clrscr();
+                    printf("%s",start);
+                    printf("\033[%ldG",curr-start+1);
+                }
+                break;
 
+            case INSERT:
+                flag = !flag;
+                if (flag) {
+                    printf("\033[4 q");
+                } else {
+                    printf("\033[0 q");
+                }
+                break;
 
+            default:
+                if (curr == end) {
+                    *curr = ch;
+                    curr++;
+                    *curr = '\0';
+                    end++;
+                } else {
+                    if (flag==1) {
+                        *curr = ch;
+                        curr++;
+                    } else {
+                        char *ptr = end;
+                        while (ptr >= curr) {
+                            *(ptr + 1) = *ptr;
+                            ptr--;
+                        }
+                        *curr = ch;
+                        end++;
+                        curr++;
+                    }
+                }
+
+                clrscr();
+                printf("%s", start);
+                printf("\033[%ldG", curr - start + 1);
+                break;
+        }
     }
 
-}
-return 0;
+    return 0;
 }
