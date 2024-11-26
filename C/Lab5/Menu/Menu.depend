@@ -35,7 +35,7 @@
 	<stdlib.h>
 	<string.h>
 
-1732211377 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/main.c
+1732625706 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/main.c
 	<stdio.h>
 	"menu.h"
 
@@ -49,23 +49,27 @@
 
 1732211377 /media/faresedres/Hard Drive/ITI/C/Lab5/Menu/menu.h
 
-1732218811 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/menu.c
+1732619637 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/menu.c
 	"menu.h"
 	"conio.h"
+	"validation.h"
 
 1732104705 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/string.c
 	"string.h"
 
 1732103781 /media/faresedres/Hard Drive/ITI/C/Lab5/Menu/string.h
 
-1732127683 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/mystring.c
-	"mystring.h"
+1732284359 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/mystring.c
 
 1732109112 /media/faresedres/Hard Drive/ITI/C/Lab5/Menu/mystring.h
 
-1732221506 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/validation.c
+1732618142 source:/media/faresedres/Hard Drive/ITI/C/Lab5/Menu/validation.c
 	"validation.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
 
-1732215398 /media/faresedres/Hard Drive/ITI/C/Lab5/Menu/validation.h
+1732615721 /media/faresedres/Hard Drive/ITI/C/Lab5/Menu/validation.h
 	"menu.h"
 

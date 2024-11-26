@@ -1,64 +1,118 @@
-#include "mystring.h"
+#include <stdio.h>
 
-void faresStrcat(char dest[], char src[]){
-int i = 0;
-int j = strlen(dest);
-while(src[i] != '\0' ){
-    dest[j] = src[i];
-    i++;
-    j++;
-}
-dest[j] = '\0';
-}
-int faresStrcmp(char str1[], char str2[]){
-    if(faresStrlen(str1) < faresStrlen(str2))return -1;
-    if(faresStrlen(str1) > faresStrlen(str2))return 1;
-
-
-
-for(int i =0; str1[i] != '\0'; i++){
-    if(str1[i] > str2[i])return 1;
-    if(str1[i] < str2[i]) return -1;
-}
-return 0;
-}
-
-void faresStrcpy(char dest[], char source[],int dest_size){
-
-    int i = 0;
-    if( faresStrlen(source) < dest_size){
-        for(i=0; source[i] != '\0'; i++){
-            dest[i] = source[i];
-        }
-    dest[i] = '\0';
+int mystrlen(char* str){
+    int count=0;
+    char* sptr=str;
+    while(*sptr){
+        count++;
+        sptr++;
     }
-    else{
-        printf("source is less than destination.");
-    }
+    return count;
+
+
+
 }
-int faresStrlen(char text[]){
-    int i = 0;
-    while(text[i] != '\0'){
-    i++;
-    }
-return i;
+int mystrcmp(char* str1,char *str2){
+    if( mystrlen(str1)>mystrlen(str2)) return 1;
+    else if (mystrlen(str1)<mystrlen(str2)) return -1;
+    {
+    char*ptr1=str1;
+    char*ptr2=str2;
+while ((*ptr1==*ptr2)&&(*ptr1!='\0') && (*ptr2!='\0')){
+
+
+    ptr1++;
+    ptr2++;
+
+}
+return (*ptr1 - *ptr2);
+
 }
 
-void faresLowerToUpper(char text[]){
-int i = 0;
-while(text[i] != '\0'){
-    if (text[i] >= 97 && text[i] <= 122){
-text[i] -= 32;
-    }
-i++;
+
+
 }
 
-void faresUpperToLower(char text[]){
-    int i =0;
-        while(text[i] != '\0'){
-        if(text[i] >= 65  && text[i] <= 90){
-            text[i] = text[i] + 32;
-        }
-i++;
+void strconcat(char* source,char* dest,int destSize){
+int scount=0,dcount=0;
+char* dptr=dest;
+char* sptr=source;
+while(*dptr){
+dcount++;
+dptr++;
+}
+
+while(*sptr){
+scount++;
+sptr++;
+}
+if(scount+dcount< destSize){
+dptr=dest+dcount;
+sptr=source;
+while(*sptr)
+{
+*dptr=*sptr;
+dptr++;
+sptr++;
+}
+*dptr='\0';
+printf("%s",dest);
+}
+else{printf("No Space available");}
+}
+
+
+
+void mystrcpy(char * source,char * dest,int destSize){
+    char *dptr=dest;
+    char *sptr = source;
+if(mystrlen(sptr)<destSize){
+
+    while(*sptr){
+        *dptr=*sptr;
+         dptr++;
+        *sptr++;
+
+
     }
+    *dptr='\0';
+
+
+}
+else{
+
+printf("Size is not available");
+}
+}
+
+
+char* upperToLower(char* str){
+char*ptr=str;
+while(*ptr){
+    if(*ptr>='A'&& *ptr<='Z'){
+
+        *ptr+=('a'-'A');
+    }
+ptr++;
+
+
+}
+
+ return str;
+
+}
+char* lowerToUpper(char* str){
+  char*ptr=str;
+while(*ptr){
+    if(*ptr>='a'&& *ptr<='z'){
+
+         *ptr-=('a'-'A');
+
+    }
+     ptr++;
+
+
+}
+
+return str;
 }

@@ -3,10 +3,12 @@
 
 
 
-#define TERMINATOR '\0'
+
 /*******FUNCTION PROTOTYPES******/
-void strcat(s1, s2);
-int strcmp(str1, str2);
-int strlen(string_name);
+int mystrlen(char* str)
+int mystrcmp(char* str1,char *str2)
+void strconcat(char* source,char* dest,int destSize)
+void mystrcpy(char * source,char * dest,int destSize)
+
 
 #endif // STRING_H_INCLUDED

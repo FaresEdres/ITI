@@ -1,6 +1,6 @@
 #include "menu.h"
 #include "conio.h"
-
+#include "validation.h"
 
 void choiceNew(){
 clrscr();
@@ -93,72 +93,69 @@ choice=getch();
 }
 void choiceNewDetails(Employee * emp,char* empCount){
 char select;
-char unique;
-char *str;
+char unique=0;
+int tempId,tempSalary;
 int count=*empCount;
+int repeat=NO_REPEAT;
 clrscr();
 do{
+do{
 
-printf("Enter Employee id:\n");
-scanf(" %d",&emp[count].id);
+tempId=getValidInteger("Enter Employee id:");
+unique= isUnique(emp,*empCount,tempId);
 
-unique= isUnique(emp,count,emp[count].id);
-if (!unique){
-clrscr();
-printf("\nnot valid");
-}
-
-}while(unique==0);
-
-
-printf("Enter Employee name:");
-scanf(" %s",emp[*empCount].name);
-printf("Enter Employee salary:");
-scanf(" %d",&emp[*empCount].salary);
-(*empCount)++;
-int repeat=NO_REPEAT;
-while(repeat==NO_REPEAT){
-clrscr();
-printf("Do you want to enter details of another employee?\nPress y if YES and n for NO");
-select=getch();
-while (select=='y'||select=='Y'){
-clrscr();
-
-unique=0;
-while (unique==0){
-printf("Enter Employee id:");
-scanf(" %d",&emp[*empCount].id);
-unique= isUnique(emp,*empCount,emp[*empCount].id);
 if (!unique){
 clrscr();
 printf("Enter Only unique and positive integers\n");
 }
-}
+
+}while(!unique);
+
 
 printf("Enter Employee name:");
-scanf("%20s",emp[*empCount].name);
-printf("Enter Employee salary:");
-scanf(" %d",&emp[*empCount].salary);
+do{
+printf("Write a valid name\n");
+fgets(emp[*empCount].name,sizeof(emp[*empCount].name),stdin);
+
+}while(!isAlphaSpace(emp[*empCount].name));
+
+//scanf(" %s",emp[*empCount].name);
+tempSalary=getValidInteger("Enter Salary:");
+emp[*empCount].id=tempId;
+emp[*empCount].salary=tempSalary;
 (*empCount)++;
+clrscr();
+printf("Do you want to enter details of another employee?\nPress y if YES and n for NO\n");
 select=getch();
-}
-if (select=='y'||select=='Y'){
-repeat=REPEAT;
-}
+
+
+
+
+
+}while(select=='y'||select=='Y');
+
+
+
 if(select=='n'||select=='N'){
-repeat=REPEAT;
+
+
 choiceNew();
 }
-}
-choiceNew();
 }
 void choiceDisplayDetails(Employee * emp,char* empCount){
+if(*empCount!=0){
+
+
 clrscr();
 printf("Employees Details\n");
 for(int i=0;i<(*empCount);i++){
 printf("ID :%d     ",emp[i].id);
 printf("Name :%s    ",emp[i].name);
 printf("Salary : %d\n",emp[i].salary);
+}}
+if(*empCount==0){
+clrscr();
+printf("No Employees Press Back");
 }
 while(checkButton()!=BACK);
 clrscr();
@@ -184,9 +181,13 @@ int select;
 char choice;
 char modId;
 int exit=0;
+
 choiceDisplayDetails(emp,empCount);
-printf("Which Employee do you want to modify\n");
-scanf("%d",&select);
+
+select=getValidInteger("Which Employee do you want to modify");
+
+
+
 clrscr();
 int i=0;
 for(i=0;i<(*empCount);i++){
@@ -194,11 +195,13 @@ if(select==emp[i].id){
 clrscr();
 modId=i;
 i=(*empCount)+1;
-printf("valid\nPress 1 to modify the name\nPress 2 to change salary\n");
+printf("valid\nPress 1 to modify the name\nPress 2 to change salary");
+do{
 scanf(" %d",&choice);
-while(choice!=1&&choice !=2){
-scanf(" %d",&choice);
-}
+}while(choice!=1 && choice!=2);
+
+
+
 char name2[20];
 switch(choice){
 case 1:
@@ -209,8 +212,7 @@ strcpy(emp[modId].name,name2);
 printf("%s",emp[modId].name);
 break;
 case 2:
-printf("Modify Salary\n");
-scanf("%d",&emp[modId].salary);
+emp[modId].salary=getValidInteger("Modify Salary");
 printf("%d",emp[modId].salary);
 break;
 default:
@@ -218,20 +220,10 @@ break;
 }
 }
 }
-if(i==(*empCount)){
 
 
-clrscr();
-printf("not valid");
 
 }
-while(checkButton()!=BACK);
-clrscr();
-choiceModify();
-
-}
-
-
 /*char buttonCheck(char choice){
 if(choice==EXTENDED){
     choice=getch();

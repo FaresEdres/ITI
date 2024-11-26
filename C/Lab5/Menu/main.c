@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "menu.h"
 void main(){
+
 char enterCheck=0;
 Employee emp[SIZE];
 char empCount=0;
@@ -20,13 +21,14 @@ choiceNewDetails(&emp,&empCount);
 }
 if (flag==SELECT_DISPLAY){
 choiceDisplayDetails(&emp,&empCount);
+
 }
 if(flag==SELECT_EXIT){
 choiceExitDetails();
 }
 if(flag==SELECT_MODIFY){
 choiceModifyDetails(&emp,&empCount);
-choiceModify();
+//choiceModify();
 }
 break;
 

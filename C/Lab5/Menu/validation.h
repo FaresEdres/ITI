@@ -6,7 +6,7 @@
 
 
 char isUnique(Employee *emp,int count,int id);
-
+int getValidInteger(const char *prompt);
 #endif
 
 
