@@ -40,7 +40,7 @@
 	<stdlib.h>
 	<string.h>
 
-1733250777 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/main.cpp
+1733255131 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/main.cpp
 	<iostream>
 	<ctype.h>
 	<string.h>
@@ -48,7 +48,7 @@
 	"validation.h"
 	"conio.h"
 
-1733249187 /media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/menu.h
+1733255258 /media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/menu.h
 
 1733248137 /media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/validation.h
 	"menu.h"

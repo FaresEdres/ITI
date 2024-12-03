@@ -36,7 +36,7 @@ printf(SET_WHITE);
 
     else{for(int i=0;i<=top;i++){
 
-        cout<<"Name:"<<items[i].name<<"\t"<<"Salary:"<<items[i].salary<<endl;
+        cout<<"ID:"<<items[i].id<<"\t"<<"Name:"<<items[i].name<<"\t"<<"Salary:"<<items[i].salary<<endl;
 
     }
     }
@@ -48,7 +48,7 @@ int Stack::pop(){
         cout<<"No Employees in the database"<<endl;
         return -1;
     }
-     cout<<"Name:"<<items[top].name<<"\t"<<"Salary:"<<items[top].salary<<endl;
+     cout<<"ID:"<<items[top].id<<"\t"<<"Name:"<<items[top].name<<"\t"<<"Salary:"<<items[top].salary<<endl;
     top--;
     return 1;
 }
@@ -59,6 +59,7 @@ int Stack::push(){
         return -1;
     }
 top++;
+items[top].id=getValidInteger("Enter Positive Integer ID");
 do{
 while (kbhit()) { // Check if there are characters in the buffer
         getch();      // Consume them

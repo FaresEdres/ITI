@@ -33,7 +33,7 @@
 /********Struct******/
 typedef struct Employee{
 char name[100];
-unsigned char id;
+unsigned int id;
 unsigned int salary;
 }Employee;
 /*****FUNCTION PROTOTYPES*********/
