@@ -1,0 +1,94 @@
+# depslib dependency file v1.0
+1733250777 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/main.cpp
+	<iostream>
+	<ctype.h>
+	<string.h>
+	"menu.h"
+	"validation.h"
+	"conio.h"
+
+1733250237 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/menu.cpp
+	<iostream>
+	<termios.h>
+	<unistd.h>
+	"menu.h"
+
+1733249187 /media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/menu.h
+
+1733244893 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/validation.c
+	"validation.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1733248137 /media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/validation.h
+	"menu.h"
+
+1733250100 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/validation.cpp
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"validation.h"
+
+1733247305 /media/faresedres/Hard Drive/ITI/C++/Lab2/New Menu/NewMenu/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<fcntl.h>
+	<stdlib.h>
+	<string.h>
+
+1733255131 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/main.cpp
+	<iostream>
+	<ctype.h>
+	<string.h>
+	"menu.h"
+	"validation.h"
+	"conio.h"
+
+1733255258 /media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/menu.h
+
+1733248137 /media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/validation.h
+	"menu.h"
+
+1733247305 /media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<fcntl.h>
+	<stdlib.h>
+	<string.h>
+
+1733250237 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/menu.cpp
+	<iostream>
+	<termios.h>
+	<unistd.h>
+	"menu.h"
+
+1733250100 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/StackMenu/validation.cpp
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"validation.h"
+
+1733250237 source:/media/faresedres/Hard Drive/ITI/C++/Lab3/StackMenu/menu.cpp
+	<iostream>
+	<termios.h>
+	<unistd.h>
+	"menu.h"
+
+1733255258 /media/faresedres/Hard Drive/ITI/C++/Lab3/StackMenu/menu.h
+
+1733250100 source:/media/faresedres/Hard Drive/ITI/C++/Lab3/StackMenu/validation.cpp
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"validation.h"
+
+1733248137 /media/faresedres/Hard Drive/ITI/C++/Lab3/StackMenu/validation.h
+	"menu.h"
+

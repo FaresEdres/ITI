@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1733149720 source:/media/faresedres/Hard Drive/ITI/C++/Lab1/main.cpp
+	<iostream>
+
+1733165783 source:/media/faresedres/Hard Drive/ITI/C++/Lab1/Complex/main.cpp
+	<iostream>
+	<ctype.h>
+	<string.h>
+	"validate.h"
+
+1733164920 source:/media/faresedres/Hard Drive/ITI/C++/Lab1/Complex/validate.cpp
+	<ctype.h>
+	<string>
+	<iostream>
+
+1733163662 /media/faresedres/Hard Drive/ITI/C++/Lab1/Complex/validate.h
+	<string>
+
+1733164920 source:/media/faresedres/Hard Drive/ITI/C++/Lab2/Complex/validate.cpp
+	<ctype.h>
+	<string>
+	<iostream>
+
