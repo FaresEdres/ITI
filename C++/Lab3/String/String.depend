@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1733333695 source:/media/faresedres/Hard Drive/ITI/C++/Lab3/String/mystring.c
+1733400399 source:/media/faresedres/Hard Drive/ITI/C++/Lab3/String/mystring.c
 	<stdio.h>
 	"mystring.h"
 
-1733335751 source:/media/faresedres/Hard Drive/ITI/C++/Lab3/String/main.cpp
+1733400381 source:/media/faresedres/Hard Drive/ITI/C++/Lab3/String/main.cpp
 	<iostream>
 	"mystring.h"
+	<exception>
 
-1733333179 /media/faresedres/Hard Drive/ITI/C++/Lab3/String/mystring.h
+1733370771 /media/faresedres/Hard Drive/ITI/C++/Lab3/String/mystring.h
 

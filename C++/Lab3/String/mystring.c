@@ -16,6 +16,21 @@ int mystrcmp(char* str1,char *str2){
     if( mystrlen(str1)>mystrlen(str2)) return 1;
     else if (mystrlen(str1)<mystrlen(str2)) return -1;
 
+    int i=0;
+while ((str1[i]==str2[i])&&(str1[i]!='\0') && (str2[i]!='\0')){
+
+
+    i++;
+
+}
+return (str1[i] - str2[i]);
+
+}
+/*
+int mystrcmp(char* str1,char *str2){
+    if( mystrlen(str1)>mystrlen(str2)) return 1;
+    else if (mystrlen(str1)<mystrlen(str2)) return -1;
+
     char*ptr1=str1;
     char*ptr2=str2;
 while ((*ptr1==*ptr2)&&(*ptr1!='\0') && (*ptr2!='\0')){
@@ -28,6 +43,7 @@ while ((*ptr1==*ptr2)&&(*ptr1!='\0') && (*ptr2!='\0')){
 return (*ptr1 - *ptr2);
 
 }
+*/
 
 void strconcat(char* source,char* dest,int destSize){
 int scount=0,dcount=0;
@@ -112,3 +128,16 @@ while(*ptr){
 
 return str;
 }
+/*
+int mystrlen(char* str){
+    int count=0;
+    char* sptr=str;
+    while(*sptr){
+        count++;
+        sptr++;
+    }
+    return count;
+
+
+
+}*/

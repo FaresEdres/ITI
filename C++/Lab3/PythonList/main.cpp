@@ -1,5 +1,9 @@
 #include <iostream>
-
+typedef struct Slice{
+int start;
+int end;
+int counter;
+}Slice;
 using namespace std;
 class List{
 private:
@@ -11,6 +15,7 @@ this->len=0;
 items=nullptr;
 
 }
+
 void listPush(int num){
 int*temp=items;
 items=new int[++len];
@@ -50,6 +55,17 @@ while ((this->items[i]==l.items[i])&&(i<this->len)){
 return (this->items[i]-l.items[i]);
 
 }
+void operator[](Slice s){
+
+if(s.end<=this->len){
+
+for(int i=0;i<s.end;i+=s.counter){
+cout<<this->items[i];
+}
+}
+
+
+}
 void operator=(List& l){
 delete[] items;
 this->items=new int[l.len];
@@ -73,7 +89,11 @@ int main()
 
     l1.listPush(60);
     l1.listPush(50);
-   l2=l1;
-   l2.listDisplay();
+      l1.listPush(60);
+    l1.listPush(50);
+   l1[{1,4,2}];
+
+
+
     return 0;
 }

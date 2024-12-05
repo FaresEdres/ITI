@@ -1,6 +1,6 @@
 #include <iostream>
 #include "mystring.h"
-
+#include <exception>
 using namespace std;
 class String{
 private:
@@ -10,13 +10,10 @@ public:
 
 String(){
 
-len=5;
-str=new char[len+1];
+len=1;
+str=new char[len];
 
-for(int i=0;i<len;i++){
-str[i]='\0';
-}
-str[len]='\0';
+str[0]='\0';
 }
 String(const char *ptr){
     int count=0;
@@ -37,12 +34,29 @@ String( String &z){
     }
     this->str[this->len]='\0';
 }
+void operator= (String s){
+
+len=s.len;
+delete[] str;
+str=new char[len+1];
+for(int i=0;i<len;i++){
+str[i]=s.str[i];
+
+}
+str[len]='\0';
+
+}
 ~String(){
 delete[]str;
 }
 
 int strLen(){
     return len;
+}
+void stringDisplay(){
+cout<<str;
+
+
 }
 int operator==(String text){
 return mystrcmp(this->str,text.str);
@@ -51,7 +65,14 @@ return mystrcmp(this->str,text.str);
 String operator+(String text){
     String newStr;
   newStr.len=text.len+this->len;
+  try{
   newStr.str=new char[newStr.len +1];
+  if(newStr.str==nullptr) throw exception();
+  }
+  catch(exception &e) {
+  cout<<"No Space";
+  }
+
 
   int i;
   for( i=0;i<this->len;i++){
@@ -79,41 +100,19 @@ int main()
 
 
 char str11[]="ahmed";
-char str22[]="ahmed";
-
-String str1("AHMED");
-String str2 ("AHMED");
+char str22[]="Mohammed";
 
 
-if(!(str1==str2))cout<<"yes";
-else cout<<"no";
+String str1 ("AHMED");
+String str2 ("  Mohamed");
+String str3=str1+str2;
 
+
+
+str3.stringDisplay();
     return 0;
     }
-int mystrcmp(char* str1,char *str2){
-    if( mystrlen(str1)>mystrlen(str2)) return 1;
-    else if (mystrlen(str1)<mystrlen(str2)) return -1;
-
-    int i=0;
-while ((str1[i]==str2[i])&&(str1[i]!='\0') && (str2[i]!='\0')){
-
-
-    i++;
-
-}
-return (str1[i] - str2[i]);
-
-}
-int mystrlen(char* str){
-    int count=0;
-    char* sptr=str;
-    while(*sptr){
-        count++;
-        sptr++;
-    }
-    return count;
 
 
 
-}
 
