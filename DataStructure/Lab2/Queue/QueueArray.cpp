@@ -6,20 +6,23 @@ int front;
 int rear;
 int size;
 int* items;
+int qSize;
 int isEmpty(){
-    if(rear==-1 && front==-1) return 1;
+    if(qSize==0) return 1;
     else return 0;
 }
 int isFull(){
-    if((front==0&&rear==size-1)||(rear+1==front))return 1;
+    if(qSize==size-1)return 1;
     else return 0;
 }
 
 public:
 QueueArray(int size){
-    front=rear=-1;
+    front=-1;
+    rear=0;
     this->size=size;
     items=new int[size];
+    qSize=0;
 }
 ~QueueArray(){
 delete[] items;
@@ -39,9 +42,12 @@ void Enqueue(int data){
 
 int Enqueue(int data){
 if(isFull())return 0;
+items[rear]=data;
 if(isEmpty()){
-    rear=front=0;
+    rear=0;
+    front=-1;
 }
+
 else if(rear==size-1){
     rear=0;
 
@@ -49,16 +55,18 @@ else if(rear==size-1){
 else{
     rear++;
 }
-items[rear]=data;
-cout<<data<<" has been entered"<<endl;
-return 1;
 
+cout<<data<<" has been entered"<<endl;
+qSize++;
+return 1;
 }
+
 int dequeue(){
     if(isEmpty())throw "Empty Queue";
-    int data=items[front];
+   
     if(front==rear){
-        front=rear=-1;
+        front=-1;
+        rear=0;
     }
     else if(front==size-1){
         front=0;
@@ -66,12 +74,12 @@ int dequeue(){
     else{
         front++;
     }
+     int data=items[front];
     cout<<data<<" has been dequed"<<endl;
+    qSize--;
     return data;
-
-
-
 }
+
 };
 
 int main(){

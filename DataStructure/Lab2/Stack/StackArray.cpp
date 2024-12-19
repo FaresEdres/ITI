@@ -19,7 +19,21 @@ void stackDisplay();
 int pop();
 int push(int data);
 int peek();
+int reverse();
 };
+int Stack::reverse(){
+    if(top<2)return  0;
+    int temp;
+    int start=0,end=top;
+    while(start<end){
+        temp=items[start];
+        items[start]=items[end];
+        items[end]=temp;
+        start++;
+        end--;
+    }
+    return 1;
+}
 void Stack::stackDisplay(){
 
     if(top==-1){
@@ -72,11 +86,8 @@ Stack s(3);
 s.push(10);
 s.push(20);
 s.push(30);
-s.peek();
-try{
-s.pop();
-}
-catch(const char*){}
+s.stackDisplay();
+s.reverse();
 s.stackDisplay();
 return 0;
     }

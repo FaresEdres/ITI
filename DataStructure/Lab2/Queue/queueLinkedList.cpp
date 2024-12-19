@@ -43,6 +43,22 @@ class QueueLinkedList{
         }
         cout<<"\n";
     }
+    void reverseQueue(){
+        if(front==NULL)return;
+        QueueNode* tempPrev=NULL;
+        QueueNode* tempCurr=front;
+        QueueNode* tempNext=NULL;
+   
+        while(tempCurr!=NULL){
+            tempNext=tempCurr->next;
+            tempCurr->next=tempPrev;
+            tempPrev=tempCurr;
+            tempCurr=tempNext;
+        }
+        QueueNode* temp=front;
+        front=rear;
+        rear=temp;
+    }
 
 };
 int main(){
@@ -53,56 +69,10 @@ int main(){
     q.Enqueue(30);
     q.Enqueue(40);
     q.Enqueue(50);
-    q.display();
-    try{
-        q.dequeue();
-    }
-    catch(const char* message){
-
-    }
-    
 q.Enqueue(60);
 q.display();
-    try{
-        q.dequeue();
-    }
-    catch(const char* message){
-
-    }
-        try{
-        q.dequeue();
-    }
-    catch(const char* message){
-
-    }
-    q.display();
-        try{
-        q.dequeue();
-    }
-    catch(const char* message){
-
-    }
-        try{
-        q.dequeue();
-    }
-    catch(const char* message){
-
-    }
-        try{
-        q.dequeue();
-    }
-    
-    catch(const char* message){
-
-    }
-
-        try{
-        q.dequeue();
-    }
-    catch(const char* message){
-    cout<<"Stack is Empty";
-    }
-
+q.reverseQueue();
+q.display();
     return 0;
 
 }

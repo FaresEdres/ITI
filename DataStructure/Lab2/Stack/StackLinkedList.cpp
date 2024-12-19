@@ -50,18 +50,33 @@ void push(int data){
             cout<<curr->data<<"->";
             curr=curr->prev;
         }
+        cout<<endl;
     }
+    int copy(StackLinkedList s){
+        if(s.tail==NULL)return -1;
+        this->tail=new StackNode(s.tail->data);
+        StackNode*myCurr=s.tail->prev;
+        StackNode*copyPrev=this->tail;
+    
+        while(myCurr!=NULL){
+           StackNode* newNode=new StackNode(myCurr->data);
+            copyPrev->prev=newNode;
+            myCurr=myCurr->prev;
+            copyPrev=copyPrev->prev;
+
+        }
+        
+        return 1;
+            }
 };
 
 int main(){
-StackLinkedList s;
+StackLinkedList s,sCopy;
 s.push(10);
 s.push(20);
-s.peek();
-try{
-s.pop();
-}
-catch(const char*){}
+s.push(30);
 s.display();
+sCopy.copy(s);
+sCopy.display();
     return 0;
 }
