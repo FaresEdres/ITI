@@ -49,16 +49,35 @@ void LinkedList::merge(LinkedList& l){
   tail->next=l.head;
 }
 
+
 int LinkedList::insertByIndex(int index,int data){
     
-    if(index>size-1)return 0;
+    if(index>size)return 0;
+   size++;
     Node* newNode=new Node(data);
     if(index==0){
         newNode->next=head;
         head=newNode;
+        tail=newNode;
+        
+    }
+    else if(index==size-1){
+        tail->next=newNode;
+        newNode->prev=tail;
+        tail=newNode;
+    }
+    else{
+
+        Node*curr=head;
+        for(int i=0;i<index-1;i++)curr=curr->next;
+        newNode->next=curr->next;
+        curr->next=newNode;
+        newNode->prev=curr;
+        newNode->next->prev=newNode;
     }
     return 1;
     }
+
 int LinkedList::insertAfter(int data,int afterData){
 Node*newNode=new Node(data);
 Node*curr=searchData(afterData);
