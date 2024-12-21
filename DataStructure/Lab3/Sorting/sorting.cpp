@@ -74,4 +74,60 @@ void quickSort(int a[], int low, int high) {
         quickSort(a, i + 1, high);
     }
 }
+
+void merge(int* arr,int left,int mid,int right){
+int lSize=mid-left+1;//4-0+1=5
+int rSize=right-mid;//9-4=5
+int* lArray=new int[lSize];
+int* rArray=new int[rSize];
+/*
+1 2 3 4 5 6 7 8 9 10
+|        |        |             
+left=0  mid=4     right=9
+*/
+for(int i=0;i<lSize;i++){
+    lArray[i]=arr[left+i];
+}
+
+for(int i=0;i<rSize;i++){
+    rArray[i]=arr[mid+i+1];
+}
+
+int i=0,j=0,k=left;
+while(i<rSize && j<lSize){
+    if(rArray[i]<lArray[j]){
+        arr[k]=rArray[i];
+        i++;
+       
+    }
+    else{
+        arr[k]=lArray[j];
+        j++;
+      
+    }
+    k++;
+}
+while(i<rSize){
+arr[k]=rArray[i];
+i++;
+k++;
+}
+while(j<lSize){
+arr[k]=lArray[j];
+j++;
+k++;
+}
+delete[] lArray;
+delete[] rArray;
+}
+
+void mergeSort(int*arr,int left,int right){
+if(left<right){
+    int mid=left+(right-left)/2;
+    mergeSort(arr,left,mid);
+    mergeSort(arr,mid+1,right);
+    merge(arr,left,mid,right);
+}
+}
+
 };
