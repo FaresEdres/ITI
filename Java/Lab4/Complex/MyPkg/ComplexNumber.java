@@ -9,22 +9,22 @@ public class ComplexNumber<T extends Number> {
     }
 
 
-    public ComplexNumber<T> add(ComplexNumber<T> other) {
-        double newReal = real.doubleValue() + other.real.doubleValue();
-        double newImg = img.doubleValue() + other.img.doubleValue();
+    public ComplexNumber<T> add(ComplexNumber<T> c) {
+        double newReal = real.doubleValue() + c.real.doubleValue();
+        double newImg = img.doubleValue() + c.img.doubleValue();
         return new ComplexNumber<>((T) Double.valueOf(newReal), (T) Double.valueOf(newImg));
     }
 
 
-    public ComplexNumber<T> subtract(ComplexNumber<T> other) {
-        double newReal = real.doubleValue() - other.real.doubleValue();
-        double newImg = img.doubleValue() - other.img.doubleValue();
+    public ComplexNumber<T> subtract(ComplexNumber<T> c) {
+        double newReal = real.doubleValue() - c.real.doubleValue();
+        double newImg = img.doubleValue() - c.img.doubleValue();
         return new ComplexNumber<>((T) Double.valueOf(newReal), (T) Double.valueOf(newImg));
     }
 
-    public ComplexNumber<T> multiply(ComplexNumber<T> other) {
-        double newReal = real.doubleValue() * other.real.doubleValue() - img.doubleValue() * other.img.doubleValue();
-        double newImg = real.doubleValue() * other.img.doubleValue() + img.doubleValue() * other.real.doubleValue();
+    public ComplexNumber<T> multiply(ComplexNumber<T> c) {
+        double newReal = real.doubleValue() * c.real.doubleValue() - img.doubleValue() * c.img.doubleValue();
+        double newImg = real.doubleValue() * c.img.doubleValue() + img.doubleValue() * c.real.doubleValue();
         return new ComplexNumber<>((T)Double.valueOf(newReal),(T) Double.valueOf(newImg));
     }
 
