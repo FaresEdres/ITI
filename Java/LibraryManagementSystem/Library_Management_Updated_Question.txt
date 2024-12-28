@@ -1,0 +1,59 @@
+
+Create a program that integrates OOP, exception handling, generics, and wildcards. Follow these steps:
+
+
+
+
+
+6. In the main method:
+   - Create instances of `Book`, `Magazine`, and `Client`.
+   - Use the menu system to demonstrate CRUD operations for both library items and clients.
+
+var isVlid=false;
+do{
+try{
+sad
+asd
+asd
+isValid=TRUE
+}
+catch{
+
+}
+
+
+}while(!isValid)
+
+
+
+
+
+
+
+
+
+
+
+
+3. Create a `Library` class to manage a collection of `LibraryItem` objects:
+   - Use generics and wildcards to allow adding and retrieving items of any subclass of `LibraryItem`.
+   - Implement methods to add, retrieve, and display items.
+
+
+
+5. Implement a menu system to provide CRUD (Create, Read, Update, Delete) functionalities for:
+   - Library items (e.g., add books/magazines, retrieve item details, update or delete items).
+   - Library clients (e.g., add clients, retrieve client details, update or delete clients).
+
+
+1. Design a class hierarchy for a simple Library Management System:
+   - Create an abstract class `LibraryItem` with properties like `id` and `title`.
+   - Extend `LibraryItem` to create subclasses `Book` and `Magazine`.
+   - Add a method `getItemDetails()` to return item details.
+
+   2. Implement a custom exception `ItemNotFoundException` that is thrown when a library item is not found.
+
+
+4. Design a class hierarchy for library clients:
+   - Create a `Client` class with properties like `id`, `name`, and `email`.
+   - Add a method `getClientDetails()` to display client information.

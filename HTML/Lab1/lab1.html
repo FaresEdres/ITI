@@ -1,0 +1,139 @@
+<!-- HTML is a Hyper Text Markup Language (A language for structuring the webpage)-->
+<!--The difference between group1{b,i,s,u} and group2{strong,em,del,ins}
+     b & strong -> Bold
+     i & em -> italic
+     s & del -> Strikethrough
+     u,ins -> Underline
+ is that group 1 tags are better in accessibility than group 2 tags--> 
+<!DOCTYPE HTML>
+ <html>
+    <head>
+        <title>Hello,world</title>
+        <meta name="author" content="Fares Edres">
+        <meta name="description" content="My first HTML document"> 
+        <link rel="icon" href="html.png">
+        <link rel="stylesheets" href="style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        
+    </head>
+    <body>
+        <div>
+            <p><b>Bold Hello,world</b></p> 
+            <p><u>Underline Hello,world</u></p>
+            <p><del>Delete Hello,world</del></p>
+            <p><i>Italic Hello,world</i></p> 
+            <p><mark>Mark Hello,world</mark></p>
+        </div>
+        <br>
+        <hr>
+        This is a paragraph
+    <div>
+        <ol type="I">
+            <li >List Item 1</li>
+            <ol type="a">
+                <li>Nested item 1.1</li>
+                <li>Nested item 1.2</li>
+            </ol>
+            <li>List Item 2</li>
+            <ol type="1">
+                <li>Nested item 2.1</li>
+                <li>Nested item 2.2</li>
+                <ul style="list-style-type:circle">
+                    <li>Nested item 2.2.1</li>
+                <li>Nested item 2.2.2</li>
+                <ul style="list-style-type:disc">
+                    <li>Nested item 2.2.2.1</li>
+                    <li>Nested item 2.2.2.2</li>
+                </ul>
+                <li>Nested item 2.2.3</li>
+                </ul>
+                <li>Nested item 2.3</li>
+                
+            </ol>
+        
+            <li>List Item 3</li>
+            <ul style="list-style-type:disc">
+                <li>Nested item 3.1</li>
+                <li>Nested item 3.1</li>
+                <li>Nested item 3.1</li>
+            </ul>
+        </ol> 
+    </div>
+    <hr>
+    <div>
+        <table style="border:1px solid black;border-collapse: collapse;">  
+                <tr style="border:1px solid black;border-collapse: collapse;">
+
+                    <th style="border:1px solid black;border-collapse: collapse;" rowspan="3">Day</th>
+                    <th style="border:1px solid black;border-collapse: collapse;" colspan="4">Seminar</th>
+                </tr>
+                <tr style="border:1px solid black;border-collapse: collapse;">
+                    <th style="border:1px solid black;border-collapse: collapse;text-align:center" colspan="2">Schedule</th>
+                    <th style="border:1px solid black;border-collapse: collapse;text-align:center" colspan="2" rowspan="2">Topic</th>
+               
+                </tr>
+                <tr>
+                    <th style="border:1px solid black;border-collapse: collapse;text-align:center">Begin</th>
+                    <th style="border:1px solid black;border-collapse: collapse;text-align:center">End</th>
+                </tr>
+                <tr style="border:1px solid black;border-collapse: collapse;">
+                    <td style="border:1px solid black;border-collapse: collapse;"rowspan="2">Monday</td>
+                    <td style="border:1px solid black;border-collapse: collapse;"rowspan="2">8:00 a.m.</td>
+                    <td style="border:1px solid black;border-collapse: collapse;"rowspan="2">5:00 p.m</td>
+                    <td style="border:1px solid black;border-collapse: collapse;"colspan=2>Introduction to Xml</td>
+                </tr>
+                <tr style="border:1px solid black;border-collapse: collapse;">
+                    <td style="border:1px solid black;border-collapse: collapse;"colspan="2">Validity:DTD and Relax NG</td>
+                </tr>
+                <tr style="border:1px solid black;border-collapse: collapse;"> 
+                    <td style="border:1px solid black;border-collapse: collapse;"rowspan="3"> Tuesday</td>
+                    <td style="border:1px solid black;border-collapse: collapse;">8:00 a.m.</td>
+                    <td style="border:1px solid black;border-collapse: collapse;" >11:00 a.m.</td>
+                    <td  style="border:1px solid black;border-collapse: collapse;" rowspan="3" colspan="2">
+                        <div style="border:1px solid black;border-collapse: collapse; margin-bottom: 10;">
+                                XPATH
+                            </div>
+                            <div style=" border:1px solid black;border-collapse: collapse;" >
+                                XSL Transformations
+                            
+
+                        </div>
+                    </td>
+                   
+                </tr>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black;border-collapse: collapse;" >11:00 a.m.</td>
+                    <td style="border:1px solid black;border-collapse: collapse;">2:00 p.m.</td>
+                    
+                </tr>
+                <td style="border:1px solid black;border-collapse: collapse">2:00 p.m.</td>
+                <td style="border:1px solid black;border-collapse: collapse">5:00 p.m.</td>
+                <tr>
+                    <td style="border:1px solid black;border-collapse: collapse">Wednesday</td>
+                    <td style="border:1px solid black;border-collapse: collapse">8:00 a.m.</td>
+                    <td style="border:1px solid black;border-collapse: collapse">12:00 p.m.</td>
+                    <td style="border:1px solid black" colspan="2">XSL Formatting Objects</td>
+                </tr>
+                
+        </table>
+    </div>
+    <hr>
+    <div>
+
+
+        <a  href="https://www.google.com/" target="_self">SelfGoogle</a>
+        <a  href="https://www.google.com/" target="_blank">NewTabGoogle</a>
+        <br>
+        <img src="html.png" alt="html image">
+        <img src="https://soltech.net/wp-content/uploads/2014/05/HTML5.webp" alt="html image">
+        <a href="image Link">
+            <img src="https://soltech.net/wp-content/uploads/2014/05/HTML5.webp"alt="html image">
+        </a>
+    
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/hMJXrpn8c8Y?si=vg-iA1AP1fssakj-" title="ITI" ></iframe> 
+    </div>
+    
+   </body>
+ </html>
+
