@@ -1,0 +1,67 @@
+fieldset{
+     border-color: darkslateblue;
+     border-radius: 5px;
+     
+}
+fieldset input{
+    margin: 1rem;
+    padding: 1em;
+    
+}
+.form-center{
+    display:flex;
+    width: 100%;
+    background-color: azure;
+}
+
+.text-center{
+    text-align: center;
+}
+input[type=number]{
+    width:5%
+}
+
+#submit{
+    color: blueviolet;
+}
+
+form input[type="radio"]{
+    margin-left: 0.5em;
+}
+.comment{
+    background-image: url(background.jpg);
+    width:30%;
+}
+
+.user-comment{
+    padding: 5px;
+    margin: 5px;
+    border:5px solid black;
+}
+.accessibility{
+    background-color: yellowgreen;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width:40%;
+ 
+}
+
+.box1{
+    border: 5px solid black;
+    width: 200px;
+    height: 200px;
+    margin:5px;
+    padding: 100px;
+    box-sizing: content-box;
+    
+}
+
+.box2{
+    border: 5px solid black;
+    width: 100px;
+    height: 100px;
+    margin:7px;
+    padding: 4px;
+    box-sizing:border-box;
+}
