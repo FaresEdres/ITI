@@ -1,33 +1,48 @@
-function transform(orders){
+function ordersAddressFormat(orders){
     orders.forEach(order => {
         var address=order.deliveryAddress.split(", ")
         order.deliveryCountry=address.pop();
         order.deliveryCity=address.pop();
         order.deliveryStreet=address.pop();
-        order.buildingNumber=Number(address.pop());
+        if(isNaN(address.at(-1)))
+          {order.buildingNumber=address.pop();}
+        else 
+          {order.buildingNumber=Number(address.pop());}
         delete order.deliveryAddress;
 
-        var calcTotalItems=order
-        .items.split(",")
-        .map(item=>item.slice(-1))
-        .reduce((total,curr)=>total+Number(curr),0);
-        order.totalItems=calcTotalItems;
-        delete order.items;
-
-        const orderDateTemp=new Date(order.orderDate);
-        const deliveryDateTemp=new Date(order.deliveryDate);
-        const deliveryDurationCalc=Math.abs(deliveryDateTemp-orderDateTemp) /(24*3600*1000);
-        order.deliveryDuration=deliveryDurationCalc;
-
-
     });
-    console.log(orders)
 }
-
-function copyOrders(orders){
+function ordersTotalItems(orders){
+   orders.forEach(order => {
+      var calcTotalItems=order
+      .items.split(",")
+      .map(item=>item.slice(-1))
+      .reduce((total,curr)=>total+Number(curr),0);
+      order.totalItems=calcTotalItems;
+      delete order.items;
+      });
+}
+function ordersDateFormat(orders){
+   orders.forEach(order => {
+const orderDateTemp=new Date(order.orderDate);
+      const milliToDays=24*3600*1000;
+      const deliveryDateTemp=new Date(order.deliveryDate);
+      const deliveryDurationCalc=Math.abs(deliveryDateTemp-orderDateTemp) /milliToDays;
+      order.deliveryDuration=deliveryDurationCalc;
+      });
+}
+function ordersCopy(orders){
 var newOrders=JSON.parse(JSON.stringify(orders));
 return newOrders;
 }
+function transform(orders){
+    var newOrders=ordersCopy(orders)
+    ordersAddressFormat(newOrders);
+    ordersDateFormat(newOrders);
+    ordersTotalItems(newOrders)
+    console.log(newOrders)
+}
+
 var orders = [
   {
     orderId: 'ORD001',
@@ -54,6 +69,6 @@ var orders = [
     deliveryAddress: '456, Pine Lane, Denver, USA',
   }
 ];
-var newOrders=copyOrders(orders)
-transform(newOrders);
+
+transform(orders);
 console.log(orders);
