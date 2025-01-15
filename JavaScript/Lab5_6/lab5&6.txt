@@ -1,0 +1,25 @@
+// NOTE: Use let const and arrow functions please 
+
+1- You're tasked with modeling vehicles and cars in a transportation app:
+    - A Vehicle has type and speed properties.
+    - All vehicles can start and stop.
+    - A Car inherits from Vehicle and has an additional drive method.
+
+    a- Implement this using ES6 classes
+     - Limit the number of Vehicle instances to 50. If an attempt is made to create the 51st vehicle, throw an error with the message: 'Vehicle limit reached'.
+     - the implementation of the methods can be console.log only or you can leave them empty
+ 
+    b- Write a function that checks whether an object is an instance of Car using two different ways
+
+
+2 - Use fetch method with url https://jsonplaceholder.typicode.com/users
+To get data asynchronously from the API and display the Result on HTML
+table
+- Display the following Coulmns in table
+    - UserName
+    - email
+    - Company Name
+    - Address geo (address GeoLocation)
+    - show users posts’ titles as ul list in this column
+        and show how many comments are made by each post. /posts /comments
+

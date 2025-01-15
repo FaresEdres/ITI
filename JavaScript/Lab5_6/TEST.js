@@ -1,0 +1,3 @@
+function speed() {
+  name: "fares";
+}

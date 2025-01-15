@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Hangman.css" />
+    <script type="module" src="Hangman.js" defer></script>
+  </head>
+  <body>
+    <div id="App">
+      <div id="main-screen">
+        <div id="mainmenu-screen">
+          <h1 id="Hangman">Hangman Game</h1>
+
+          <div>
+            <img src="HangMan.png" alt="hangman" width="400px" />
+          </div>
+          <div id="category">
+            <pre style="font-size: 15px">
+Rules to Save the Poor Guy:
+1- Guess the word using only letters!
+2-Don't waste your time on non-alphabet nonsense. 
+We'll ignore you faster than you can say “oops!”
+3- Give it your all!
+That guy has kids to feed! Do it for the little ones!
+            </pre>
+            <p>Select Category</p>
+            <div id="category-options">
+              <button id="Animal" class="Animal" class="Buttons">Animal</button>
+              <button id="Technology" class="Technology" class="Buttons">
+                Technology
+              </button>
+            </div>
+          </div>
+
+          <div id="game-screen" style="display: none">
+            <div id="user-field">
+              <p id="guessWord"></p>
+              <div>
+                <!--
+                <input
+                  autofocus
+                  type="text"
+                  class="userInput"
+                  id="userInput"
+                  maxlength="1"
+                  autocomplete="false"
+                  placeholder="○"
+                  ;
+                />-->
+                <button id="hint" class="Select">Hint</button>
+              </div>
+            </div>
+            <div id="health">
+              <div id="time-hint">
+                <p id="time-sentence" style="width: 30px">
+                  <i class="fa-regular fa-clock"></i>
+                  <span id="time" class="time"></span
+                  ><span class="time">sec</span>
+                </p>
+                <p id="given-hint"></p>
+              </div>
+              <span id="warning"></span>
+              <div>
+                <div class="lives" id="lives"></div>
+              </div>
+
+              <div id="stats">
+                <p id="previous-attempt">previous attempts:</p>
+                <p id="previous-attempts"></p>
+              </div>
+            </div>
+          </div>
+          <div id="congrats" style="display: none">
+            <img src="congrats.webp " width="400px" />
+          </div>
+          <div id="lost" style="display: none">
+            <p class="sadMessage">You've killed the poor guy using the</p>
+            <p id="correct-word" class="sadMessage"></p>
+            <img src="lost.webp" width="400px" />
+          </div>
+        </div>
+      </div>
+      <!---
+      
+    --></div>
+    <script></script>
+  </body>
+</html>
