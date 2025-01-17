@@ -1,0 +1,23 @@
+h2 {
+  color: #092635;
+  font-family: League;
+  font-size: 65px;
+}
+h3 {
+  color: #1b4242;
+  font-family: League;
+  font-size: 35px;
+  margin: 15px;
+}
+
+p {
+  color: #1b4242;
+  font-family: League;
+  font-size: 16px;
+}
+.title {
+  color: #092635;
+  font-family: League;
+  font-size: 70px;
+  margin-top: 50px;
+}

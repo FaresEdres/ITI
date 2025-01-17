@@ -1,0 +1,52 @@
+/*
+* {
+  word-break: keep-all;
+}
+h1 {
+  font-family: League;
+  color: #092635;
+  font-size: 138px;
+  margin-top: 80px;
+}
+
+h2 {
+  color: #092635;
+  font-family: League;
+  font-size: 65px;
+}
+h3 {
+  color: #1b4242;
+  font-family: League;
+  font-size: 35px;
+  margin: 15px;
+}
+h4 {
+  color: white;
+  font-family: League;
+  font-size: 30px;
+}
+p {
+  color: #1b4242;
+  font-family: League;
+  font-size: 16px;
+}
+.title {
+  color: #092635;
+  font-family: League;
+  font-size: 70px;
+  margin-top: 50px;
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("LeagueSpartan-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+.skills {
+  margin-top: 60px;
+  font-size: 60px;
+}
+label {
+  padding-top: 20px;
+}
+*/

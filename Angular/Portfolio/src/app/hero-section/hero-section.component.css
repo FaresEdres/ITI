@@ -1,0 +1,15 @@
+* {
+  word-break: keep-all;
+}
+h1 {
+  font-family: League;
+  color: #092635;
+  font-size: 135px;
+  margin-top: 80px;
+}
+
+h2 {
+  color: #092635;
+  font-family: League;
+  font-size: 65px;
+}
