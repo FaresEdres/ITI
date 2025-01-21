@@ -1,0 +1,43 @@
+<form #loginForm="ngForm" (ngSubmit)="handleFormSubmit(loginForm)">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      name="email"
+      required
+      [(ngModel)]="loginValues.email"
+      #email="ngModel"
+      placeholder="fares@gmail.com"
+    />
+    @if(email.invalid&&email.touched){
+
+    <div id="emailHelp" class="form-text text-danger">Email is required</div>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      required
+      name="password"
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      [(ngModel)]="loginValues.password"
+      #password="ngModel"
+    />
+  </div>
+  @if(password.invalid&&password.touched){ @if(password.invalid) {
+
+  <div id="emailHelp" class="form-text text-danger">Password is required</div>
+  } }
+
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Remember Me </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+<p>Don't have account? <a href="register">Register</a></p>

@@ -1,0 +1,18 @@
+.nav-items {
+  font-family: sans-serif;
+  font-size: 1rem;
+  border: 2px #0d0c22 solid;
+  border-radius: 10px;
+  background-color: #212529;
+  color: #dcd8cc;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.main-logo {
+  font-family: "Satoshi", sans-serif;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.nav-design {
+  margin-left: 100px;
+}

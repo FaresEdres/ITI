@@ -1,0 +1,44 @@
+.product-title {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: #010101;
+}
+.product-brand {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: grey;
+}
+.product-content {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 200;
+  font-size: 1.2rem;
+  color: #010101;
+  line-height: 1;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+img {
+  background-color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.category {
+  border: 2px #0d0c22 solid;
+  border-radius: 10px;
+  background-color: #212529;
+  margin-left: 10px;
+  width: 15%;
+  min-width: 100px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

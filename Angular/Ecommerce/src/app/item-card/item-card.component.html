@@ -1,0 +1,30 @@
+<div class="card m-1 p-2 center" style="width: 18rem">
+  <div [routerLink]="['item-details', itemCard.id]" class="position-relative">
+    <img
+      [src]="itemCard.thumbnail"
+      alt="..."
+      class=""
+      style="object-fit: contain; background-color: white"
+      width="100%"
+    />
+    <div class="position-absolute top-0 start-0">
+      @if (itemCard.stock > 0) {
+      <h6>
+        <span class="badge text-bg-success product-title">In stock</span>
+      </h6>
+      } @else {
+      <h6>
+        <span class="badge text-bg-danger product-title">Out of stock</span>
+      </h6>
+      }
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-row justify-content-between">
+      <h6 class="card-title product-title">{{ itemCard.title }}</h6>
+      <p class="product-content">{{ itemCard.price }}$</p>
+    </div>
+    <!-- Buy Button -->
+    <button class="btn btn-secondary" (click)="addToCart(itemCard)">Buy</button>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<!-- <div class="d-flex flex-row">
+  <div style="width: 40vw">
+    <div style="background-color: #f1f0ea; border-radius: 8px; width: 100%">
+      <img
+        height="600px"
+        style="object-fit: fill"
+        [src]="currProduct.images[0]"
+      />
+    </div>
+    @for(image of currProduct.images;track $index){ @if($index>0){
+    <img height="100em" [src]="image" style="object-fit: fill" />
+    } }
+  </div>
+  <div
+    class="d-flex flex-column"
+    style="
+      background-color: #f1f0ea;
+      border-radius: 8px;
+
+      padding-left: 1%;
+      padding-top: 1%;
+    "
+  >
+    <p class="product-content">{{ currProduct.brand }}</p>
+    <p class="product-title">{{ currProduct.title }}</p>
+    <p class="product-content">Category:{{ currProduct.category }}</p>
+    <p class="product-content">Rating:{{ currProduct.rating }}</p>
+    <p class="product-content">Description:</p>
+    <p class="product-content">{{ currProduct.description }}</p>
+  </div>
+</div> -->
+<div
+  class="d-flex flex-row justify-content-center"
+  style="height: 100vh; background-color: white; gap: 4vw; padding-top: 50px"
+>
+  <div style="width: 40vw; height: 80vh; gap: 10%" class="d-flex flex-column">
+    <div
+      class="w-100 h-75 d-flex justify-content-center align-items-center"
+      style="border-radius: 9px"
+    >
+      <img
+        style="
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          background-color: #f7f7fa;
+        "
+        [src]="currProduct.images[0]"
+      />
+    </div>
+
+    <div
+      class="w-100 h-25 d-flex flex-row justify-content-start align-items-center gap-2 overflow-hidden"
+    >
+      @for(image of currProduct.images;track $index){ @if($index>0){
+      <img
+        [src]="image"
+        width="26% "
+        height="71%"
+        style="object-fit: contain; background-color: #f7f7fa"
+      />
+      } }
+    </div>
+    <div>
+      <p class="product-title">Reviews</p>
+
+      @for (review of currProduct.reviews; track $index) {
+      <div style="padding-bottom: 10%">
+        <p class="product-brand" style="color: black">
+          {{ review.reviewerName }}
+          <span style="color: #6e6e6e; font-size: small">{{
+            review.date | date : "shortDate"
+          }}</span>
+        </p>
+        <app-stars-generator [currProduct]="currProduct"></app-stars-generator>
+        <p class="product-content">{{ review.comment }}</p>
+      </div>
+      }
+    </div>
+  </div>
+  <div
+    style="
+      background-color: white;
+      width: 40vw;
+      height: 80vh;
+      padding-left: 10px;
+      border-radius: 8px;
+    "
+  >
+    <p class="product-brand">{{ currProduct.brand }}</p>
+    <p class="product-title">{{ currProduct.title }}</p>
+    <app-stars-generator [currProduct]="currProduct"></app-stars-generator>
+    <div class="category">
+      <span style="color: white">{{ currProduct.category }}</span>
+    </div>
+
+    <p class="product-title">{{ currProduct.price }}$</p>
+    <p class="product-content">{{ currProduct.description }}</p>
+    <a href="cart" class="btn btn-secondary w-25">Buy</a>
+  </div>
+</div>
+
+<!-- rating: number;
+    comment: string;
+    date: string;
+    reviewerName: string;
+    reviewerEmail: string; -->

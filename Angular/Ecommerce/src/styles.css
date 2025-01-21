@@ -1,0 +1,15 @@
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
+
+.product-title {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700; /* Bold font for the title */
+  font-size: 2rem; /* Adjust size as needed */
+  color: red;
+}
+.product-content {
+  font-family: "Satoshi", sans-serif;
+  font-weight: 400; /* Regular weight for the content */
+  font-size: 1rem; /* Adjust size as needed for content */
+  line-height: 1.6; /* Optional: improve readability */
+  color: #333;
+}

@@ -1,0 +1,106 @@
+<div>
+  <form [formGroup]="registerForm" (ngSubmit)="handleRegisterSubmit()">
+    <div class="mb-3">
+      <label for="Name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputName1"
+        aria-describedby="nameHelp"
+        formControlName="name"
+        placeholder="Fares Edres"
+      />
+    </div>
+    @if(RegisterFormControls['name'].touched&&RegisterFormControls['name'].invalid){
+    @if(RegisterFormControls['name'].getError("required")){
+    <p>Name is required</p>
+    } }
+    <div class="mb-3">
+      <label for="username" class="form-label">username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputUserName"
+        aria-describedby="usernameHelp"
+        formControlName="username"
+        placeholder="FaresEdres"
+      />
+    </div>
+    @if(RegisterFormControls['username'].touched&&RegisterFormControls['username'].invalid){
+    @if(RegisterFormControls['username'].getError('pattern')){
+    <p>
+      characters a-z, 0-9, underscores and periods. The username cannot start
+      with a period.
+    </p>
+    } @else if(RegisterFormControls['username'].getError('required')){
+    <p>username is required</p>
+    } }
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="email"
+        placeholder="fares@gmail.com"
+      />
+      @if(RegisterFormControls['email'].touched&&RegisterFormControls['email'].invalid){
+      @if(RegisterFormControls['email'].getError('pattern')){
+      <p>Please write the email in the right format</p>
+      } @else if( RegisterFormControls['email'].getError('required')){
+      <p>Email is required</p>
+      } }
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        required
+        formControlName="password"
+        placeholder="8-20 characters"
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+      />
+    </div>
+    @if(RegisterFormControls['password'].touched &&
+    RegisterFormControls['password'].invalid){
+    @if(RegisterFormControls['password'].getError('pattern')){
+    <p>
+      At least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number
+      and Special characters
+    </p>
+    } @else if(RegisterFormControls['password'].hasError('required')){
+    <p>Password is required</p>
+    } }
+
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm Password</label>
+      <input
+        required
+        formControlName="confirmPassword"
+        type="password"
+        class="form-control"
+        id="ConfirmPassword"
+      />
+    </div>
+    @if(RegisterFormControls['confirmPassword'].touched){
+    @if(RegisterFormControls['confirmPassword'].value!=RegisterFormControls['password'].value){
+    <p>It should be the same password</p>
+
+    } @else if(RegisterFormControls['confirmPassword'].hasError('required')){
+    <p>Password is required</p>
+    } }
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="registerForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+  <p style="color: black">
+    Already have an account? <a href="login">Log in</a>
+  </p>
+</div>

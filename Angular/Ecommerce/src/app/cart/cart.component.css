@@ -1,0 +1,32 @@
+.cart-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-actions button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+}
