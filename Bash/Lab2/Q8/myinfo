@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+
+
+
+read -p "Insert your logname:" logname
+ls -l /home/$logname
+echo $$
+cp -r /home/$logname /tmp

@@ -1,0 +1,31 @@
+#! /usr/bin/bash
+
+if [[ $# -eq 1 ]]
+ then
+if [[ -d $1 ]]
+then
+echo "Directory"
+elif [[ -f $1 ]]
+then
+echo "file" 
+fi
+if [[ -d $1 || -f $1 ]]
+then
+if [[ -r $1 ]]
+then
+echo "Readable"
+fi
+if [[ -w $1 ]]
+then
+echo  "Writable"
+fi
+if [[ -x $1 ]]
+then 
+echo "Executable"
+fi
+else
+echo "invalid Input"
+fi
+else
+echo "You should insert one argument"
+fi

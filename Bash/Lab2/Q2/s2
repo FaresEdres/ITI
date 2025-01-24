@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+
+#1st solution
+echo $1
+
+#2nd solution
+echo $x

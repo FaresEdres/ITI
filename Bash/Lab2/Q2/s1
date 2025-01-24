@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+ x=10
+
+#1st solution
+ export x
+ ./s2
+
+#2nd solution
+./s2 "$x"
+
+

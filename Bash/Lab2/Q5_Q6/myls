@@ -1,0 +1,40 @@
+#! /usr/bin/bash
+
+if [[ $# -eq 0 ]]
+then
+ls .
+elif [[ -d $1 ]]
+then
+if [[ $# -eq 1 ]]
+then
+ls $1
+elif [[ $# -eq 2 ]]
+then
+if [[ $2 == '-l' ]]
+then
+ls  $1 -l
+
+elif [[ $2 == '-a' ]]
+then
+ls  $1 -a
+
+
+elif [[ $2 == '-d' ]]
+then
+ls  $1 -d
+
+
+elif [[ $2 == '-i' ]]
+then
+ls  $1 -i
+
+
+elif [[ $2 == '-r' ]]
+then
+ls  $1 -r
+fi
+
+fi
+else
+echo "No such directory"
+fi

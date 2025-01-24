@@ -1,0 +1,16 @@
+#! /usr/bin/bash 
+
+if [[ $# -eq 0 ]]
+then
+ cd ~
+elif [[ $# -eq 1 ]]
+then
+ if [[ -d $1 ]]
+ then
+ cd $1
+ else
+ echo "No such Directory"
+ fi
+else
+echo "Only one argument should be declared"
+fi
