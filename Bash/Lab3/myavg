@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+read -p "Insert array size:" size
+sum=0
+for ((i=0;i<$size;i++))
+do
+read -p "enter element number: " arr[$i]
+((sum+=arr[$i]))
+done
+
+((avg=$sum/$size))
+echo Average:$avg

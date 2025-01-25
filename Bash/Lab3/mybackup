@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+mkdir -p backup
+
+for file in ~/* ~/.*;
+do
+if [[ -f $file ]]
+then
+cp $file backup
+fi
+
+done

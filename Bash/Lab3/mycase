@@ -1,0 +1,21 @@
+#! /usr/bin/bash
+shopt -s extglob
+
+read -p "Enter a character"  ch
+case $ch in
+@([a-z]))
+	echo "Lower Case"
+	;;
+@([A-Z]))
+	echo Upper Case
+	;;
+
+@([0-9]))
+	echo Number
+    ;;
+"")
+	echo Nothing
+	;;
+*)	
+	echo invalid
+esac

@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+read -p "Enter a command" ch
+case $ch in 
+"1")
+echo ls
+;;
+"2")
+echo ls -a
+;;
+*)
+echo Unknown command
+esac

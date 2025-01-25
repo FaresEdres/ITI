@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+for user in  $(cut -d: -f1 /etc/passwd);
+do
+
+mail -s "Greetings" "$user" < mtemplate
+echo "Email sent to $user"
+
+done

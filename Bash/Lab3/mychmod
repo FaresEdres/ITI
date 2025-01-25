@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+
+for filename in ~/*
+do
+chmod u+x $filename
+
+done

@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+read -p "Insert array size:" size
+for ((i=0;i<$size;i++))
+do
+read -p "enter element number: " arr[$i]
+done
+
+for ((i=0;i<$size;i++))
+do
+echo ${arr[$i]}
+done

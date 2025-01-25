@@ -1,0 +1,361 @@
+#! /usr/bin/bash
+shopt -s extglob
+
+# '' "" 
+# '' -> strong quoting
+# "" -> weak quoting ($ \)
+
+#read name
+#echo 'hello \"$name\"'
+
+
+<<COMMENT
+case <var> in 
+case)
+	//logic
+	;;
+case)
+	//logic
+	;;
+*)
+	//logic
+esac
+COMMENT
+: '
+read -p "Please enter your name: " name
+case $name in 
+"mahmoud")
+	echo Hello manager
+	;;
+"ahmed")
+	echo Hello supervisor
+	;;
+*)
+	echo Unknown user
+esac
+
+?(pattern-list)
+	Matches zero or one occurrence of the given patterns
+*(pattern-list)
+	Matches zero or more occurrences of the given patterns
++(pattern-list)
+	Matches one or more occurrences of the given patterns
+@(pattern-list)
+	Matches one of the given patterns
+!(pattern-list)
+	Matches anything except one of the given patterns
+
+
+
+
+
+
+
+read -p "Please enter your name: " name
+case $name in 
++([a-z]|" "))
+	echo small characters
+	;;
++([A-Z]))
+	echo capital characters
+	;;
++([A-z]|[[:space:]])) # ([a-zA-Z])
+	echo mixed characters
+	;;
++([a-zA-Z0-9]))
+	echo mixed with numbers characters
+	;;
++([0-9]))
+	echo numbers
+	;;
+*)
+	echo Unknown user
+esac
+
+
+while <condition>
+do
+	//logic
+done
+
+for ((i=0;i<3;i++))
+do
+done
+
+until <condition>
+do
+
+done
+
+
+
+declare -i num=0
+while (( $num < 10 ))
+do
+	echo $num
+	 num+=1
+done
+
+declare -i num=0
+until [ $num -gt 10 ]
+do
+	echo $num
+	 num+=1
+done
+
+
+for ((i=0;i<10;i++))
+do
+	echo $i
+done
+
+while true 
+do
+read -p "Please enter your name: " name
+case $name in 
+[Ee][Xx][Ii][Tt])
+	read -p "Do you want to exit (y/n): " check
+	if [[ "yes" =~ $check ]]
+	then
+		break
+	fi
+
+	;;
++([a-z]|" "))
+	echo small characters
+	;;
++([A-Z]))
+	echo capital characters
+	;;
++([A-z]|[[:space:]])) # ([a-zA-Z])
+	echo mixed characters
+	;;
++([a-zA-Z0-9]))
+	echo mixed with numbers characters
+	;;
++([0-9]))
+	echo numbers
+	;;
+*)
+	echo Unknown user
+esac
+done
+
+
+
+# [[ "ali" =~ li ]] && echo True || echo False
+
+
+for <var> in <list>
+do
+
+done
+
+
+for name in ahmed mahmoud hamada 
+do
+	echo $name
+done
+
+for fileName in `ls $1`
+do
+	echo $fileName
+done
+
+
+for fileName in $(ls $1/*)
+do
+	chmod u-x $fileName
+done
+
+
+
+
+
+
+PS3="EnterValue#? "
+select name in mahmoud ahmed hamada exit
+do
+case $name in 
+"mahmoud")
+	echo Hello manager
+	;;
+"ahmed")
+	echo Hello supervisor
+	;;
+"hamada")
+	echo Hello student
+	;;
+"exit")
+	break
+	;;
+*)
+	echo Unknown user
+esac
+done
+
+
+declare -a arr=(1 9 7 21)
+
+echo ${arr[@]}
+echo ${arr[@]: 1}
+echo ${arr[@]: 1 : 2}
+echo ${#arr[@]}
+
+read -p "please enter array size: " size
+sum=0
+for ((i=0;i<$size;i++))
+do
+read -p "enter element number $(($i+1)): " arr[$i]
+((sum+=arr[$i]))
+done
+
+declare -a arr=(1 9 7 21)
+echo ${arr[@]}
+#echo $sum
+#((avg=$sum/$size))
+#echo $avg
+
+
+function myFun(){
+	echo "in myfun"
+}
+
+myFun 
+
+myFun(){
+	echo "in myfun"
+}
+
+myFun 
+
+
+myFun(){
+	echo "in myfun"
+	return 45
+}
+
+myFun
+result=$?
+echo $result
+
+
+
+myFun(){
+	echo in Myfun
+
+}
+
+result=$(myFun)
+echo $?
+echo $result
+'
+
+: ' 
+# CreateDB SelectDB CreateTB insertTB
+
+'
+if [[ -e  ~/Courses/bash/OSAD45/Database ]]
+then
+	cd ~/Courses/bash/OSAD45/Database
+	echo "Database is Ready"
+else
+	mkdir ~/Courses/bash/OSAD45/Database
+	cd ~/Courses/bash/OSAD45/Database
+	echo "Database is Ready"
+fi
+
+select choice in CreateDB SelectDB CreateTB insertTB
+do
+case $choice in 
+"CreateDB")
+	read -p "Please Enter Database name: " DBName
+	if [[ -e $DBName ]]
+	then
+		echo Database is already exist
+	else
+		mkdir $DBName
+		echo "Database is created successfully"
+	fi
+	;;
+"SelectDB")
+	read -p "Please Enter Database name: " DBName
+	if [[ -e $DBName ]]
+	then
+		cd $DBName
+		echo "Database is Connected successfully"
+	else
+		echo "Database is not exist"
+	fi
+	;;
+"CreateTB")
+	read -p "Please Enter Table Name: " TBName
+	if [[ -e $TBName ]]
+	then
+		echo "Table is Already Exist"
+	else
+		read -p "Please Enter Columns numbers" colNum
+		flag=0
+		for ((i=0;i<$colNum;i++))
+		do
+			line=""
+			read -p "Please Enter name of Column number $(($i+1)): " colName
+			line+=$colName:
+			read -p "Please Enter Column $colName datatype: " colDataType
+			line+=$colDataType:
+			if [[ flag -eq 0 ]]
+			then
+			read -p "Do you want to make this column a primary key ? (y/n)" check
+				if [[ yes =~ $check ]]
+				then
+					line+=pk
+					flag=1
+				fi
+			fi		
+			echo $line >> .$TBName-metadata
+		done
+		touch $TBName
+	fi
+	;;
+"insertTB")
+		read -p "please enter table name: " TBName
+		line=""
+		for var in `cat .$TBName-metadata`
+		do
+			
+			colName=`echo $var | cut -d: -f1`
+			colType=`echo $var | cut -d : -f2`
+			colPk=`echo $var | cut -d : -f3`
+			read -p "Please Enter $colName value: " colVal
+			line+=$colVal:
+			
+		done
+		echo $line >> $TBName
+		;;
+*)
+	echo Unknown user
+esac 
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

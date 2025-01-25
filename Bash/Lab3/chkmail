@@ -1,0 +1,13 @@
+#! /usr/bin/bash
+
+while :
+previousSize=$(stat -c%s "/var/mail/faresedres")
+do
+currentSize=$(stat -c%s "/var/mail/faresedres")
+if [[ $currentSize -gt $previousSize ]]
+then
+echo New Email
+previousSize=$currentSize
+fi
+sleep 10s
+done
