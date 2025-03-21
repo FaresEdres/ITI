@@ -1,0 +1,22 @@
+version: "3"
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+    networks:
+      - my-bridge-network
+  redis:
+    image: redis
+    networks:
+      - my-bridge-network
+  app:
+    build: .
+    depends_on:
+      - redis
+    networks:
+      - my-bridge-network
+
+networks:
+  my-bridge-network:
+
