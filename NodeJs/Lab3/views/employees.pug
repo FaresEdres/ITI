@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Employees
+    link(rel="stylesheet", href="/style.css")
+  body
+    h1 Employees
+    table
+      thead
+        tr
+          th ID
+          th Name
+          th Age
+          th Email
+      tbody
+        each employee in employees
+          tr
+            td= employee.id
+            td= employee.name
+            td= employee.age
+            td= employee.email

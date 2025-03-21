@@ -1,0 +1,22 @@
+table {
+  border: 2px solid #333;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid #555;
+  padding: 12px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+

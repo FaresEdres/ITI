@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Wael",
+    "age": 30,
+    "email": "medhat@gmail.com",
+    "salary": 5000,
+    "id": 1
+  },
+  {
+    "name": "yasser",
+    "age": "20",
+    "email": "yasser@yahoo.com",
+    "salary": 5000,
+    "id": 3
+  },
+  {
+    "name": "Wael",
+    "age": "20",
+    "email": "medhat@gmail.com",
+    "salary": 5000,
+    "id": 4
+  },
+  {
+    "name": "youssef",
+    "age": "20",
+    "email": "youssef@yahoo.com",
+    "salary": 5000,
+    "id": 6
+  },
+  {
+    "name": "ahmed",
+    "age": "25",
+    "email": "ahmed25@gmail.com",
+    "salary": 8000,
+    "id": 7
+  },
+  {
+    "name": "Wael",
+    "age": "20",
+    "email": "medhat@gmail.com",
+    "salary": 5000,
+    "id": 8
+  },
+  {
+    "name": "Mohammed",
+    "email": "medhat@gmail.com",
+    "salary": 5000,
+    "age": 30,
+    "id": 9
+  },
+  {
+    "name": "Mohammed",
+    "email": "medhat@gmail.com",
+    "salary": 0,
+    "age": 30,
+    "id": 10
+  }
+]
