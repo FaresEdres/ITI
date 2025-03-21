@@ -1,0 +1,41 @@
+1- Show all databases available on your MongoDB server.
+
+2- Create database named: OpenSourceDB or CloudDB.
+
+3- Create collection (student) that has:
+  - FirstName: string, LastName: string, Age: Number, Faculty: An object that has (Name, Department),
+    Grades: An array of objects, each object has: (CourseName: string, Grade: number, Pass: Boolean) and hobbies: array of strings.
+  - Insert 2 (at least) documents in Student collection with different values (one record each time).
+  - Insert 3 (at least) documents in Student collection with different values (using one insert statment).
+
+4- Retrieve the following data:
+  - First student in the collection
+  - Only FirstName and LastName of all students
+  - All students 
+  - Students count
+  - Second 2 students in the collection
+  - All students sorted by age Ascending
+  - Students with specific FirstName
+  - Students with age greater than or equal 20
+  - Students with age either 30 or 40
+  - Students with hobbies contains "sports"
+  - Students with hobbies only contains "sports"
+  - Students with FirstName=Ahmed or LastName= Ahmed
+  - Students with FirstName=Ahmed and age greater than 40
+  - Students that have address field 
+  - Students with faculty name contain Engineer
+  
+
+5- Run the following command and just explore the output:
+   - db.collection.find().help()     //to explore the cursor object
+   - db.stats()                      // db general info.
+
+
+
+Bouns:
+6- Create collection (course) that has: _id: unique field, courseName: string and try to insert the following (using insertMany)
+   - [{"_id": "python", courseName: "Python"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "nodejs", courseName: "NodeJs"}] 
+   - [{"_id": "js", courseName: "JS"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "java", courseName: "Jave"}], i need the first document only success .
+   - [{"_id": "js", courseName: "JS"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "java", courseName: "Jave"}], i need the last document to success .
+
+

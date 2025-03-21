@@ -1,0 +1,76 @@
+/*1) from student collection in OpenSourceDB/CloudDB and using aggregation:  
+  - retrive students with specific first name
+  */
+  db.student.find({firstName:"Fares"})
+  /*
+  - count of Students with age greater than or equal 20*/
+  db.student.find({age:{$gte:20}}).count()
+  /*
+  - number of students in each faculty */
+  db.student.aggregate([
+   {$group:{_id:"$faculty.name"}},{$count:"Faculty count"}
+  ])
+  
+  /*
+  - I need to save only the firstName, lastName and age of Students with age greater than 60 in retirement collection
+  */ 
+db.student.aggregate([
+   {$match:{age:{$gt:60}}},
+  { $project:{ firstName:1,lastName:1,age:1,_id:0}},{$out:"retirement"}])
+
+  /*
+
+2) book-author system, each book contains list of authors (many-to-many) 
+   - retrive all books with authors using aggregation
+*/
+db.books.aggregate([{
+$lookup:{
+   from: "authors",
+   localField: "authors",
+   foreignField:'_id',
+   as:"Participated authors"
+}
+
+}])
+
+/*
+3) import the data from person.json file to a persons collection in OpenSourceDB/CloudDB */
+
+mongoimport  --db OpenSourceDB --collection persons --file   persons.json --jsonArray
+/*
+
+4) explain how the following query will executed (age of dob greater than 60 from persons collection) (Scanning type, queryExecutionTime, #no of returned Docs., and #no of examined docs)
+*/
+
+Scanning Type -> Collection scan (COLLSCAN)
+queryEecutionTime -> Time taken for the query to be executed =6
+#no. of returned documents -> documents that matched the filter=1222
+#no. of examined documents -> documents that are compared to the filter =5000
+
+/*
+5) how can i enhance this query (note for labs instructors: only field index was covered )
+creating index on age so that i have sorted keys in age that i can access their docs through them
+
+*/
+OpenSourceDB> db.persons.createIndex({"dob.age":1})
+/*
+
+6) in persons collection: list all indexed and remove any index except _id index*/
+db.persons.getIndexes()/*
+7)drop the course collection in db and create it again with the following: 
+   - [{"_id": "python", courseName: "Python"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "nodejs", courseName: "NodeJs"}] 
+   - [{"_id": "js", courseName: "JS"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "java", courseName: "Jave"}], i need the first document only success .
+   i need to achieve automicity on the operation level not on the document level
+*/
+
+const session =db.getMongo().startSession()
+session.startTransaction()
+
+db.courses.insertMany([{"_id": "python", courseName: "Python"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "nodejs", courseName: "NodeJs"}] )
+
+db.courses.insertMany([{"_id": "js", courseName: "JS"}, {"_id": "mongodb", courseName: "MongoDB"}, {"_id": "java", courseName: "Jave"}])
+session.commitTransaction()
+
+session.abortTransaction()
+
+session.endSession()
