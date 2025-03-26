@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wishlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./vueversion3.js"></script>
+    <style>
+        .more {
+            color: red;
+            font-weight: bold;
+        }
+        .less {
+            color: green;
+            font-weight: bold;
+        }
+        .none {
+            color: gray;
+            text-decoration: line-through;
+        }
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="mainapp">
+      <div class="text-center my-3">
+        <button @click="isWishlistVisible = !isWishlistVisible" 
+                class="btn btn-primary">
+          {{isWishlistVisible ? 'Hide Wishlist' : 'Show Wishlist'}}
+        </button>
+      </div>
+
+      <div v-if="isWishlistVisible" class="container mb-4">
+        <h3 class="text-center mb-3">Your Wishlist</h3>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Book</th>
+              <th>Author</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in wishlist.items" :key="item.isbn">
+              <td>{{item.name}}</td>
+              <td>{{item.author}}</td>
+              <td>{{currencyFormatter(item.price)}}</td>
+              <td>
+                <button @click="toggleWishList(item)" 
+                        class="btn btn-sm btn-danger">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr v-if="!wishlist.items.length">
+              <td colspan="4" class="text-center">Your wishlist is empty</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div v-if="!isWishlistVisible" class="d-flex flex-wrap justify-content-center gap-3 p-3">
+        <div v-for="book in books" :key="book.isbn" class="rounded border p-3" style="width: 23rem;">
+          <div class="d-flex justify-content-center mb-3">
+            <img :src="book.image" :alt="book.name" style="height: 120px; object-fit: contain;">
+          </div>
+          
+          <div class="d-flex justify-content-between mb-2">
+            <span>{{book.category}}</span>
+            <span>{{book.author}}</span>
+          </div>
+          
+          <div class="d-flex justify-content-between mb-2">
+            <span :class="[book.numberofpages >= 350 ? 'more' : '', book.numberofpages < 350 ? 'less' : '', book.numberofpages == 0 ? 'none' : '']">
+              Pages: {{book.numberofpages}}
+            </span>
+            <span class="fw-bold">{{currencyFormatter(book.price)}}</span>
+          </div>
+          
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">ISBN: {{book.isbn}}</small>
+            <button @click="toggleWishList(book)" 
+                    class="btn btn-sm text-white px-2 py-1" style="background-color: #007bff;">
+              {{isBookWished(book) ? 'Remove' : 'Add'}} To List
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./books.js"></script>
+    <script>
+     const app = Vue.createApp({
+        data: () => ({
+            books: books,
+            isWishlistVisible: false,
+            wishlist: {
+                items: []
+            }
+        }),
+        methods: {
+            isBookWished(book) {
+                return this.wishlist.items.some(item => item.isbn === book.isbn);
+            },
+            toggleWishList(book) {
+                if(this.isBookWished(book)) {
+                    this.wishlist.items = this.wishlist.items.filter(item => item.isbn !== book.isbn);
+                } else {
+                    this.wishlist.items.push(book);
+                }
+            },
+            currencyFormatter(price) {
+                return new Intl.NumberFormat("en-SA", {
+                    style: "currency",
+                    currency: "SAR",
+                    minimumFractionDigits: 2
+                }).format(price);
+            }
+        }
+     });
+     
+     app.mount("#mainapp");
+    </script>
+  </body>
+</html>
