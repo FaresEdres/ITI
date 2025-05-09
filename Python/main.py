@@ -52,13 +52,16 @@ def validateUserProperty(inputValue,inputName):
 def validateNumber(num):
     try:
         return int(num);
+    
     except:
+        print("Enter a valid number")
         return False  
 def validateDateFormat(dateValue):
     try:
          datetime.strptime(dateValue, "%d/%m/%Y")
          return True
     except ValueError:
+        print("Format should be dd/mm/yyyy")  
         return False
 
 def checkConfirmPassword(password,confirmPassword):
@@ -128,11 +131,13 @@ def viewUserProjects(userId):
     print(userProjects if userProjects else "You don't have projects")
     return userProjectsId                     
 
-def deleteProject(projectId):
+def deleteProject(userProjectId):
     with open('projects.json','r') as file:
                 projects=json.load(file)
+    print(userProjectId)            
     for project in projects:
-        if projectId==project['projectId']:
+        print(userProjectId,project['projectId'])      
+        if userProjectId==project['projectId']:
             projects.remove(project)
             break
     with open('projects.json','w') as file:
@@ -150,9 +155,15 @@ def editProject(updatedProject):
     with open('projects.json','w') as file:
         json.dump(projects,file,indent=2)    
             
+def validateTimeInterval(startDate,endDate):
+    if  startDate > endDate:
+        print("End date should be after start date")  
+        return False
+    else:
+        return True
 
 
-
+            
             
             
                         
@@ -229,16 +240,24 @@ while(1):
                         while (not valid):
                                 target=input('Enter project Target\n')
                                 target=valid=validateNumber(target)
-                        while (not valid):
-                            startDate=input('Enter project Start Date\n')
-                            valid=validateDateFormat(startDate,'startDate')
-                        valid=False    
-                        while (not valid):
-                            endDate=input('Enter project End Date\n')
-                            valid=validateDateFormat(endDate,'endDate')
+                        valid=False        
+                        isDateIntervalValid=False        
+                        while(not isDateIntervalValid):        
+                            while (not valid):
+                                startDate=input('Enter project Start Date\n')
+                                valid=validateDateFormat(startDate)
+                            valid=False    
+                            while (not valid):
+                                endDate=input('Enter project End Date\n')
+                                valid=validateDateFormat(endDate)
+                            
+                            isDateIntervalValid=validateTimeInterval(startDate,endDate)  
+                 
+                                
+                        
                             
 
-                   
+
                         createProject(title=title,details=details,target=target,startDate=startDate,endDate=endDate,userId= user['userId'])
                     case '3':
                        
@@ -291,11 +310,12 @@ while(1):
                           projectId=input('Enter project id that you want to delete\n')
                           projectId=validateNumber(projectId) 
                           valid =True if(projectId in userProjectsId) else print("Enter a project id from your list") and False
-                        deleteProject(userProjectId=userProjectsId)
+                        deleteProject(userProjectId=projectId)
                 
                 
 
         case _:
+            print("select 1 to register or 2 to login")
             pass
                    
     
